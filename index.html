@@ -1,12 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Antic&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <title>Document</title>
 </head>
-<body>
-    <script src ="js/script.js"></script>
+
+<body class="font-[Antic]">
+
+    <nav class="bg-gradient-to-r from-blue-500 via-blue-300 to-blue-500 w-full font-[Antic] text-blue-600 font-bold">
+
+        <div class="mx-auto px-4">
+            <div class="flex justify-between">
+
+                <div class="flex space-x-4 w-full px-10">
+                    <!-- logo -->
+                    <div class="">
+                        <a href="#" class="flex justify-start items-center py-5 px-2">
+                            <img class="h-1/2" src="assets/LogoITJOBS.png" alt="LogoITJOBS">
+                        </a>
+                    </div>
+
+                    <!-- primary nav -->
+                    <div class="hidden md:flex items-center ml-[40%] w-full space-x-10 flex justify-end font-bold">
+                        <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900">Empleos</a>
+                        <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900">Agregar oferta</a>
+                        <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900">Testimonios</a>
+                        <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900">Contacto</a>
+                    </div>
+                </div>
+
+                <!-- mobile button -->
+                <div class="md:hidden flex items-center">
+                    <button class="mobile-menu-button">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- mobile menu -->
+        <div class="mobile-menu hidden md:hidden">
+            <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">Empleos</a>
+            <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">Agregar oferta laboral</a>
+            <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">Testimonios</a>
+            <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">Contacto</a>
+        </div>
+    </nav>
+
+
+    <!-- TESTIMONIOS -->
+    <div class="mx-10">
+        <div class="w-full my-10">
+            <h1 class=" text-center text-3xl">Testimonios</h1>
+        </div>
+        <div class="flex space-x-10">
+            <div class="h-[30%] w-[30%] py-4 px-8 bg-blue-100 shadow-lg rounded-lg my-20">
+                <div class="flex justify-center md:justify-end -mt-16">
+                    <img class="w-20 h-20 object-cover rounded-full border-2 border-blue-500"
+                        src="assets/FelipeElGato.jpeg">
+                </div>
+                <div>
+                    <h2 class=" text-center text-gray-800 text-3xl font-semibold">"Gracias IT Jobs"</h2>
+                    <p class="text-center">⭐⭐⭐⭐⭐</p>
+                    <p class="mt-2 text-gray-600">Gracias a éste portal de empleo, mi humano consiguió empleo y trabaja
+                        desde casa, por lo que puedo pasar mas tiempo con él!</p>
+                </div>
+                <div class="flex justify-end mt-4">
+                    <a href="#" class="text-xl font-medium text-black">Felipe, el gato</a>
+                </div>
+            </div>
+
+            <div class="h-[30%] w-[30%] py-4 px-8 bg-blue-100  shadow-lg rounded-lg my-20">
+                <div class="flex justify-center md:justify-end -mt-16">
+                    <img class="w-20 h-20 object-cover rounded-full border-2 border-blue-500"
+                        src="https://img.freepik.com/foto-gratis/mira-captura-recortada-atractivo-joven-apuesto-emocionado-camiseta-azul-que-senala-dedos-arriba-despues-haber-mirado-sorprendido-expresion-alegre-feliz-cara-broadley-sonriendo_176420-10316.jpg?w=2000">
+                </div>
+                <div>
+                    <h2 class="text-center text-gray-800 text-3xl font-semibold">Una gran herramienta</h2>
+                    <p class="text-center">⭐⭐⭐⭐⭐</p>
+                    <p class="mt-2 text-gray-600">¡A través de ésta página pude postularme a varias ofertas laborales y
+                        encontré el trabajo de mis sueños!</p>
+                </div>
+                <div class="flex justify-end mt-4">
+                    <a href="#" class="text-xl font-medium text-black">Pepe Honguito</a>
+                </div>
+            </div>
+
+            <div class="h-[30%] w-[30%] py-4 px-8 bg-blue-100  shadow-lg rounded-lg my-20">
+                <div class="flex justify-center md:justify-end -mt-16">
+                    <img class="w-20 h-20 object-cover rounded-full border-2 border-blue-500"
+                        src="https://static.independent.co.uk/2021/11/10/08/ESP-CEL_PEOPLE-PAUL_RUUD_73783.jpg?width=1200">
+                </div>
+                <div>
+                    <h2 class="text-center text-gray-800 text-3xl font-semibold">¡La recomiendo!</h2>
+                    <p class="text-center">⭐⭐⭐⭐⭐</p>
+                    <p class="mt-2 text-gray-600">Un gran portal de empleos para quiénes nos dedicamos al rubro IT,
+                        dónde se suben empleos todo el tiempo, y es de fácil postulación</p>
+                </div>
+                <div class="flex justify-end mt-4">
+                    <a href="#" class="text-xl font-medium text-black">Paulo Rudd</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- footer -->
+    <footer class="bg-gradient-to-r from-blue-500 via-blue-300 to-blue-500 w-full text-xl text-gray-800 text-blue-600 font-bold">
+        <div class=" md:flex items-center ml-[40%] w-full space-x-10 flex align-center font-bold">
+            <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900"><i class="fa-solid fa-envelope"></i></a>
+            <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900"><i class="devicon-linkedin-plain"></i></a>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
+
 </html>
+
