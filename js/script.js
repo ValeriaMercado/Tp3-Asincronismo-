@@ -52,7 +52,9 @@ const saveJobInfo = () => {
 };
 
 const listJobs = (jobs) => {
-  for (const { id, name, description, location, category, seniority } of jobs) {
+  setTimeout(() => {
+    $("#btnSpin").innerHTML = ""
+    for (const { id, name, description, location, category, seniority } of jobs) {
     $("#container-jobs").innerHTML += `
     <div class=" h-[10%] w-full mx-auto px-5 mb-3">
         <div class="max-w-xl bg-white rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -77,52 +79,59 @@ const listJobs = (jobs) => {
     </div>
     `;
   }
-
   for (const btn of $$(".btn-details")) {
     btn.addEventListener("click", () => {
       const jobId = btn.getAttribute("data-id");
       jobAsync(jobId).then((data) => detailsJob(data));
     });
   }
+  },2000)
+  
+
+ 
 };
 
 const detailsJob = (job) => {
-  $("#container-jobs").innerHTML = `
-  <div class="max-w-xl flex justify-items-center bg-white rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
-  <div class="p-5">
-          <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white text-center">
-              ${job.name}</h5>
-              <div class="flex space-x-6 justify-center">
-                <div class="text-xs font-bold uppercase text-teal-700 mt-1 mb-2">${job.location}</div>
-                <div class="text-xs font-bold uppercase text-black-700 mt-1 mb-2">${job.category}</div>
-                <div class="text-xs font-bold uppercase text-red-700 mt-1 mb-2">${job.seniority}</div>
-              </div>
+  setTimeout(() =>{
+    $("#btnSpin").innerHTML = ""
+    $("#container-jobs").innerHTML = `
+    <div class="max-w-xl flex justify-items-center bg-white rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
+    <div class="p-5">
+            <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white text-center">
+                ${job.name}</h5>
+                <div class="flex space-x-6 justify-center">
+                  <div class="text-xs font-bold uppercase text-teal-700 mt-1 mb-2">${job.location}</div>
+                  <div class="text-xs font-bold uppercase text-black-700 mt-1 mb-2">${job.category}</div>
+                  <div class="text-xs font-bold uppercase text-red-700 mt-1 mb-2">${job.seniority}</div>
+                </div>
+  
+                <p class="mb-3 text-sm text-gray-700 dark:text-gray-400">${job.description}<p>
+       
+          <div class = "flex justify-between text-center space-x-4">
+          <a href="#" class="h-1/3 w-1/3 rounded bg-green-500 btn-edit" data-id="${job.id}" >Editar</a>
+          <a href="#" class="h-1/3 w-1/3 rounded bg-red-500 btn-delete" data-id="${job.id}">Eliminar</a>
+          <a href="#" class="h-1/3 w-1/3 rounded bg-blue-500 btn-back">Volver</a>
+       
+          </div>
+    </div>
+    `;
+  
+    for (const btn of $$(".btn-edit")) {
+      btn.addEventListener("click", () => {
+        const jobId = btn.getAttribute("data-id");
+        $("#submitEdit").setAttribute("data-id", jobId);
+        jobAsync(jobId).then((data) => showFormEdit(data));
+      });
+    }
+  
+    for (const btn of $$(".btn-delete")) {
+      btn.addEventListener("click", () => {
+        const jobId = btn.getAttribute("data-id");
+        deleteJob(jobId);
+      });
+    }
+  }, 2000)
 
-              <p class="mb-3 text-sm text-gray-700 dark:text-gray-400">${job.description}<p>
-     
-        <div class = "flex justify-between text-center space-x-4">
-        <a href="#" class="h-1/3 w-1/3 rounded bg-green-500 btn-edit" data-id="${job.id}" >Editar</a>
-        <a href="#" class="h-1/3 w-1/3 rounded bg-red-500 btn-delete" data-id="${job.id}">Eliminar</a>
-        <a href="#" class="h-1/3 w-1/3 rounded bg-blue-500 btn-back">Volver</a>
-     
-        </div>
-  </div>
-  `;
-
-  for (const btn of $$(".btn-edit")) {
-    btn.addEventListener("click", () => {
-      const jobId = btn.getAttribute("data-id");
-      $("#submitEdit").setAttribute("data-id", jobId);
-      jobAsync(jobId).then((data) => showFormEdit(data));
-    });
-  }
-
-  for (const btn of $$(".btn-delete")) {
-    btn.addEventListener("click", () => {
-      const jobId = btn.getAttribute("data-id");
-      deleteJob(jobId);
-    });
-  }
 
 };
 
