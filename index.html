@@ -12,11 +12,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Antic&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <title>Document</title>
+    <title>TP 3 - JOBS</title>
 </head>
 
-<body class="font-[Antic]">
-
+<body class="font-[Antic] w-full">
     <nav class="bg-gradient-to-r from-blue-500 via-blue-300 to-blue-500 w-full font-[Antic] text-blue-600 font-bold">
 
         <div class="mx-auto px-4">
@@ -34,8 +33,8 @@
                     <div class="hidden md:flex items-center ml-[40%] w-full space-x-10 flex justify-end font-bold">
                         <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900">Empleos</a>
                         <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900">Agregar oferta</a>
-                        <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900">Testimonios</a>
-                        <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900">Contacto</a>
+                        <a href="#testimonios" class="py-5 px-3 text-gray-700 hover:text-gray-900">Testimonios</a>
+                        <a href="#footer" class="py-5 px-3 text-gray-700 hover:text-gray-900">Contacto</a>
                     </div>
                 </div>
 
@@ -53,14 +52,59 @@
         <div class="mobile-menu hidden md:hidden">
             <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">Empleos</a>
             <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">Agregar oferta laboral</a>
-            <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">Testimonios</a>
-            <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">Contacto</a>
+            <a href="#testimonios" class="block py-2 px-4 text-sm hover:bg-gray-200">Testimonios</a>
+            <a href="#footer" class="block py-2 px-4 text-sm hover:bg-gray-200">Contacto</a>
         </div>
     </nav>
 
+    <div id="filters" class="flex w-[95%] space-x-4 mx-10 my-10 justify-center">
 
+        <select id="Location" class="w-[33%] h-[44px] 
+                rounded border border-blue-300 hover:border-indigo-300 outline-blue-500 mb-8">
+            <option value="location">Locación</option>
+            <option value="argentina">Argentina</option>
+            <option value="españa">España</option>
+            <option value="Brasil">Brasil</option>
+            <option value="Estados Unidos">Estados Unidos</option>
+            <option value="transporte">Uruguay</option>
+        </select>
+
+
+        <select id="Seniortiy" class="w-1/3 h-[44px] 
+                rounded border border-blue-300 hover:border-indigo-300 outline-blue-500 mb-8">
+            <option value="seniority">Seniority</option>
+            <option value="trainee">Trainee</option>
+            <option value="junior">Junior</option>
+            <option value="semisenior">Semisenior</option>
+            <option value="educación">Senior</option>
+        </select>
+
+
+        <select id="Categorias" class="w-1/3 h-[44px] 
+                rounded border border-blue-300 hover:border-indigo-300 outline-blue-500 mb-8">
+            <option value="categoría">Categoría</option>
+            <option value="desarrollo">Desarrollo</option>
+            <option value="soporte">Soporte</option>
+            <option value="data-analyst">Data Analyst</option>
+            <option value="seguridad">Seguridad</option>
+            <option value="insfraestructura">Infraestructura</option>
+            <option value="QA">QA</option>
+        </select>
+
+        <button class="bg-blue-300 rounded w-[130px] h-10">Buscar</button>
+        <button class="bg-blue-700 rounded w-[130px] h-10 text-white">Limpiar</button>
+    </div>
+
+
+
+    <div id="container">
+        <div class= "grid grid-cols-4" id="container-jobs">
+
+        </div>
+
+    </div>
     <!-- TESTIMONIOS -->
-    <div class="mx-10">
+    <div id="testimonios" class="mx-10">
         <div class="w-full my-10">
             <h1 class=" text-center text-3xl">Testimonios</h1>
         </div>
@@ -68,12 +112,12 @@
             <div class="h-[30%] w-[30%] py-4 px-8 bg-blue-100 shadow-lg rounded-lg my-20">
                 <div class="flex justify-center md:justify-end -mt-16">
                     <img class="w-20 h-20 object-cover rounded-full border-2 border-blue-500"
-                        src="assets/FelipeElGato.jpeg">
+                        src="assets/FelipeElGato.jpeg" alt="El gato Felipe">
                 </div>
                 <div>
                     <h2 class=" text-center text-gray-800 text-3xl font-semibold">"Gracias IT Jobs"</h2>
-                    <p class="text-center">⭐⭐⭐⭐⭐</p>
-                    <p class="mt-2 text-gray-600">Gracias a éste portal de empleo, mi humano consiguió empleo y trabaja
+                    <p class="mt-2 text-gray-600">Gracias a éste portal de trabajos, mi humano consiguió empleo y
+                        trabaja
                         desde casa, por lo que puedo pasar mas tiempo con él!</p>
                 </div>
                 <div class="flex justify-end mt-4">
@@ -84,11 +128,11 @@
             <div class="h-[30%] w-[30%] py-4 px-8 bg-blue-100  shadow-lg rounded-lg my-20">
                 <div class="flex justify-center md:justify-end -mt-16">
                     <img class="w-20 h-20 object-cover rounded-full border-2 border-blue-500"
-                        src="https://img.freepik.com/foto-gratis/mira-captura-recortada-atractivo-joven-apuesto-emocionado-camiseta-azul-que-senala-dedos-arriba-despues-haber-mirado-sorprendido-expresion-alegre-feliz-cara-broadley-sonriendo_176420-10316.jpg?w=2000">
+                        src="https://img.freepik.com/foto-gratis/mira-captura-recortada-atractivo-joven-apuesto-emocionado-camiseta-azul-que-senala-dedos-arriba-despues-haber-mirado-sorprendido-expresion-alegre-feliz-cara-broadley-sonriendo_176420-10316.jpg?w=2000"
+                        alt="persona1">
                 </div>
                 <div>
                     <h2 class="text-center text-gray-800 text-3xl font-semibold">Una gran herramienta</h2>
-                    <p class="text-center">⭐⭐⭐⭐⭐</p>
                     <p class="mt-2 text-gray-600">¡A través de ésta página pude postularme a varias ofertas laborales y
                         encontré el trabajo de mis sueños!</p>
                 </div>
@@ -100,11 +144,11 @@
             <div class="h-[30%] w-[30%] py-4 px-8 bg-blue-100  shadow-lg rounded-lg my-20">
                 <div class="flex justify-center md:justify-end -mt-16">
                     <img class="w-20 h-20 object-cover rounded-full border-2 border-blue-500"
-                        src="https://static.independent.co.uk/2021/11/10/08/ESP-CEL_PEOPLE-PAUL_RUUD_73783.jpg?width=1200">
+                        src="https://static.independent.co.uk/2021/11/10/08/ESP-CEL_PEOPLE-PAUL_RUUD_73783.jpg?width=1200"
+                        alt="persona2">
                 </div>
                 <div>
                     <h2 class="text-center text-gray-800 text-3xl font-semibold">¡La recomiendo!</h2>
-                    <p class="text-center">⭐⭐⭐⭐⭐</p>
                     <p class="mt-2 text-gray-600">Un gran portal de empleos para quiénes nos dedicamos al rubro IT,
                         dónde se suben empleos todo el tiempo, y es de fácil postulación</p>
                 </div>
@@ -117,7 +161,9 @@
 
 
     <!-- footer -->
-    <footer class="bg-gradient-to-r from-blue-500 via-blue-300 to-blue-500 w-full text-xl text-gray-800 text-blue-600 font-bold">
+    <footer id="footer"
+        class="bg-gradient-to-r from-blue-500 via-blue-300 to-blue-500 w-full text-xl text-gray-800 text-blue-600 font-bold">
+        <h1 class="text-center">Contáctanos por nuestras redes sociales</h1>
         <div class=" md:flex items-center ml-[40%] w-full space-x-10 flex align-center font-bold">
             <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900"><i class="fa-brands fa-twitter"></i></a>
             <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900"><i class="fa-solid fa-envelope"></i></a>
@@ -129,4 +175,3 @@
 </body>
 
 </html>
-
