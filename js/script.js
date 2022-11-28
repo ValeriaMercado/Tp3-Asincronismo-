@@ -204,4 +204,49 @@ $("#submit-delete").addEventListener("click", () => {
   deleteJob(jobId)
 })
 
+$("#btnCancelDelete").addEventListener("click", () =>{
+  window.location.href = "index.html"
+})
+// filtros
 
+const searchLocation = (location) => {
+  fetch(`https://638152199440b61b0d15c5d8.mockapi.io//jobs?location=${location}`)
+    .then(res => res.json())
+    .then(data => listJobs(data))
+}
+
+$("#btnSearchJob").addEventListener("click", () =>{
+  $("#container-jobs").innerHTML = ""
+  searchLocation($("#locationFilters").value)
+})
+
+const searchCategory= (category) => {
+  fetch(`https://638152199440b61b0d15c5d8.mockapi.io//jobs?category=${category}`)
+    .then(res => res.json())
+    .then(data =>listJobs(data))
+}
+
+$("#btnSearchJob").addEventListener("click", () =>{
+  $("#container-jobs").innerHTML = ""
+  searchCategory($("#categoriesFilters").value)
+  
+})
+
+const searchSeniority= (seniority) => {
+  fetch(`https://638152199440b61b0d15c5d8.mockapi.io//jobs?seniority=${seniority}`)
+    .then(res => res.json())
+    .then(data =>listJobs(data))
+}
+
+$("#btnSearchJob").addEventListener("click", () =>{
+  $("#container-jobs").innerHTML = ""
+  searchSeniority($("#seniorityFilters").value)
+ 
+})
+
+
+
+$("#btnClean").addEventListener("click", () =>{
+  $("#container-jobs").innerHTML = ""
+ getJobs()
+})
