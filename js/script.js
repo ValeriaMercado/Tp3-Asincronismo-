@@ -9,6 +9,8 @@ btn.addEventListener("click", () => {
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 
+let isSubmit = false
+
 const getJobs = () => {
   fetch("https://638152199440b61b0d15c5d8.mockapi.io/jobs")
     .then((res) => res.json())
@@ -24,6 +26,17 @@ const jobAsync = async (id) => {
   const job = await response.json();
   return job;
 };
+
+
+const addJob = () => {
+  fetch("https://638152199440b61b0d15c5d8.mockapi.io/jobs", {
+    method: "POST",
+    headers: {
+      'Content-Type': 'Application/json'
+    },
+    body: JSON.stringify(saveJob())
+  }).finally(() => window.location.href = "index.html")
+}
 
 const editJob = (id) => {
   fetch(`https://638152199440b61b0d15c5d8.mockapi.io/jobs/${id}`, {
@@ -55,7 +68,7 @@ const listJobs = (jobs) => {
   setTimeout(() => {
     $("#btnSpin").innerHTML = ""
     for (const { id, name, description, location, category, seniority } of jobs) {
-    $("#container-jobs").innerHTML += `
+      $("#container-jobs").innerHTML += `
     <div class=" h-[10%] w-full mx-auto px-5 mb-3">
         <div class="max-w-xl bg-white rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
             <div class="p-5">
@@ -78,21 +91,21 @@ const listJobs = (jobs) => {
 
     </div>
     `;
-  }
-  for (const btn of $$(".btn-details")) {
-    btn.addEventListener("click", () => {
-      const jobId = btn.getAttribute("data-id");
-      jobAsync(jobId).then((data) => detailsJob(data));
-    });
-  }
-  },2000)
-  
+    }
+    for (const btn of $$(".btn-details")) {
+      btn.addEventListener("click", () => {
+        const jobId = btn.getAttribute("data-id");
+        jobAsync(jobId).then((data) => detailsJob(data));
+      });
+    }
+  }, 2000)
 
- 
+
+
 };
 
 const detailsJob = (job) => {
-  setTimeout(() =>{
+  setTimeout(() => {
     $("#btnSpin").innerHTML = ""
     $("#container-jobs").innerHTML = `
     <div class="max-w-xl flex justify-items-center bg-white rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -115,19 +128,25 @@ const detailsJob = (job) => {
           </div>
     </div>
     `;
-  
+
     for (const btn of $$(".btn-edit")) {
       btn.addEventListener("click", () => {
+        isSubmit = false
         const jobId = btn.getAttribute("data-id");
         $("#submitEdit").setAttribute("data-id", jobId);
         jobAsync(jobId).then((data) => showFormEdit(data));
       });
     }
-  
+
     for (const btn of $$(".btn-delete")) {
       btn.addEventListener("click", () => {
+        $("#container-jobs").classList.add("hidden");
+        $("#alertDelete").classList.remove("hidden")
+        $("#filters").classList.add("hidden");
+        $("#testimonials").classList.add("hidden");
         const jobId = btn.getAttribute("data-id");
-        deleteJob(jobId);
+        $("#submit-delete").setAttribute("data-id", jobId)
+        // deleteJob(jobId);
       });
     }
   }, 2000)
@@ -135,11 +154,22 @@ const detailsJob = (job) => {
 
 };
 
+const saveJob = () => {
+  return {
+    name: $("#editName").value,
+    description: $("#editDescription").value,
+    location: $("#locationFormEdit").value,
+    category: $("#seniorityFormEdit").value,
+    seniority: $("#categoriesFormEdit").value
+  }
+}
+
 const showFormEdit = (job) => {
   $("#container-jobs").innerHTML = "";
   $("#formEditJob").classList.remove("hidden");
   $("#filters").classList.add("hidden");
   $("#testimonials").classList.add("hidden");
+  $("#submit").classList.add("hidden");
   $("#editName").value = job.name;
   $("#editDescription").value = job.description;
   $("#locationFormEdit").value = job.location;
@@ -149,6 +179,29 @@ const showFormEdit = (job) => {
 
 $("#formEditJob").addEventListener("submit", (e) => {
   e.preventDefault();
-  const id = $("#submitEdit").getAttribute("data-id");
-  editJob(id);
+  if (isSubmit) {
+    addJob()
+  } else {
+    const id = $("#submitEdit").getAttribute("data-id");
+    editJob(id);
+  }
 });
+
+$("#showForm").addEventListener("click", () => {
+  $("#container-jobs").classList.add("hidden");
+  $("#formEditJob").classList.remove("hidden");
+  $("#filters").classList.add("hidden");
+  $("#testimonials").classList.add("hidden");
+  $("#submitEdit").classList.add("hidden");
+  isSubmit = true
+
+
+
+})
+
+$("#submit-delete").addEventListener("click", () => {
+  const jobId = $("#submit-delete").getAttribute("data-id")
+  deleteJob(jobId)
+})
+
+

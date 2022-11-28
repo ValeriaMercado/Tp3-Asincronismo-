@@ -33,7 +33,7 @@
                     <!-- primary nav -->
                     <div class="hidden md:flex items-center ml-[40%] w-full space-x-10 flex justify-end font-bold">
                         <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900">Empleos</a>
-                        <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900">Agregar oferta</a>
+                        <a href="#" id="showForm" class="py-5 px-3 text-gray-700 hover:text-gray-900">Agregar oferta</a>
                         <a href="#testimonials" class="py-5 px-3 text-gray-700 hover:text-gray-900">Testimonios</a>
                         <a href="#footer" class="py-5 px-3 text-gray-700 hover:text-gray-900">Contacto</a>
                     </div>
@@ -52,48 +52,50 @@
         <!-- mobile menu -->
         <div class="mobile-menu hidden md:hidden">
             <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">Empleos</a>
-            <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">Agregar oferta laboral</a>
+            <a href="#" id="showForm" class="block py-2 px-4 text-sm hover:bg-gray-200">Agregar oferta laboral</a>
             <a href="#testimonios" class="block py-2 px-4 text-sm hover:bg-gray-200">Testimonios</a>
             <a href="#footer" class="block py-2 px-4 text-sm hover:bg-gray-200">Contacto</a>
         </div>
     </nav>
 
-    <div id="filters" class="flex w-[95%] space-x-4 mx-10 my-10 justify-center">
-
-        <select id="location" class="w-[33%] h-[44px] 
-                rounded border border-blue-300 hover:border-indigo-300 outline-blue-500 mb-8">
-            <option value="Locación">Locación</option>
-            <option value="Argentina">Argentina</option>
-            <option value="España">España</option>
-            <option value="Brasil">Brasil</option>
-            <option value="Estados Unidos">Estados Unidos</option>
-            <option value="Uruguay">Uruguay</option>
-        </select>
-
-
-        <select id="seniority" class="w-1/3 h-[44px] 
-                rounded border border-blue-300 hover:border-indigo-300 outline-blue-500 mb-8">
-            <option value="Seniority">Seniority</option>
-            <option value="Trainee">Trainee</option>
-            <option value="Junior">Junior</option>
-            <option value="Semisenior">Semisenior</option>
-            <option value="Senior">Senior</option>
-        </select>
+    <div id="filters" class="sm:bg-green-300">
+      <div class="lg: bg-none flex w-[95%] space-x-4 mx-10 my-10 justify-center">
+            <select id="location" class="w-[33%] h-[44px] 
+                    rounded border border-blue-300 hover:border-indigo-300 outline-blue-500 mb-8">
+                <option value="Locación">Locación</option>
+                <option value="Argentina">Argentina</option>
+                <option value="España">España</option>
+                <option value="Brasil">Brasil</option>
+                <option value="Estados Unidos">Estados Unidos</option>
+                <option value="Uruguay">Uruguay</option>
+            </select>
 
 
-        <select id="categories" class="w-1/3 h-[44px] 
-                rounded border border-blue-300 hover:border-indigo-300 outline-blue-500 mb-8">
-            <option value="Categoría">Categoría</option>
-            <option value="Desarrollo">Desarrollo</option>
-            <option value="Soporte">Soporte</option>
-            <option value="Data-analyst">Data Analyst</option>
-            <option value="Seguridad">Seguridad</option>
-            <option value="Insfraestructura">Infraestructura</option>
-            <option value="QA">QA</option>
-        </select>
+            <select id="seniority" class="w-1/3 h-[44px] 
+                        rounded border border-blue-300 hover:border-indigo-300 outline-blue-500 mb-8">
+                    <option value="Seniority">Seniority</option>
+                    <option value="Trainee">Trainee</option>
+                    <option value="Junior">Junior</option>
+                    <option value="Semisenior">Semisenior</option>
+                    <option value="Senior">Senior</option>
+            </select>
 
-        <button class="bg-blue-300 rounded w-[130px] h-10">Buscar</button>
-        <button class="bg-blue-700 rounded w-[130px] h-10 text-white">Limpiar</button>
+
+             <select id="categories" class="w-1/3 h-[44px] 
+                            rounded border border-blue-300 hover:border-indigo-300 outline-blue-500 mb-8">
+                        <option value="Categoría">Categoría</option>
+                        <option value="Desarrollo">Desarrollo</option>
+                        <option value="Soporte">Soporte</option>
+                        <option value="Data-analyst">Data Analyst</option>
+                        <option value="Seguridad">Seguridad</option>
+                        <option value="Insfraestructura">Infraestructura</option>
+                        <option value="QA">QA</option>
+                    </select>
+
+                    <button class="bg-blue-300 rounded w-[130px] h-10" id="searchJob">Buscar</button>
+                    <button class="bg-blue-700 rounded w-[130px] h-10 text-white">Limpiar</button>
+        </div>
+      
     </div>
     
  
@@ -162,6 +164,35 @@
         </div>
     </div>
 
+
+
+    <div id="alertDelete" class="hidden w-full md:w-1/3 mx-auto">
+        <div class="flex flex-col p-5 rounded-lg shadow bg-white">
+          <div class="flex">
+            <div>
+              <svg class="w-6 h-6 fill-current text-red-500" xmlns="http://www.w3.org/2000/svg"></svg>
+            </div>
+      
+            <div class="ml-3">
+              <h2 class="font-semibold text-gray-800">¡Atención!</h2>
+              <p class="mt-2 text-sm text-gray-600 leading-relaxed">Esta por borrar un aviso de trabajo.¿Está seguro que desea continuar con la acción?</p>
+            </div>
+          </div>
+      
+          <div class="flex items-center mt-3">
+            <button class="flex-1 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md">
+              Cancelar
+            </button>
+      
+            <button id="submit-delete" class="flex-1 px-4 py-2 ml-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-md">
+              Eliminar
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+
     <!-- FORM EDIT  -->
 
     <form id="formEditJob" class=" hidden mx-10">
@@ -214,8 +245,11 @@
             <button type="submit"
                 class="text-white bg-green-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 id="submitEdit">Editar</button>
+                <button type="submit"
+                class="text-white bg-yellow-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="submit">Agregar</button>
             <button type="submit"
                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Cancelar</button>
+                
         </div>
 
 
