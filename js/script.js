@@ -68,11 +68,23 @@ const listJobs = (jobs) => {
   setTimeout(() => {
     $("#btnSpin").innerHTML = ""
     for (const { id, name, description, location, category, seniority } of jobs) {
+      let textClass = ''
+      if (name === "Backend Developer") {
+        textClass = "red-700"
+      } else if (name === "Frontend Developer") {
+        textClass = "blue-700"
+      } else if (name === "Tester") {
+        textClass = "green-500"
+      } else if (name === "Architect") {
+        textClass = "pink-500"
+      } else if (name === "DevOps") {
+        textClass = "purple-500"
+      }
       $("#container-jobs").innerHTML += `
     <div class=" h-[10%] w-full mx-auto px-5 mb-3">
         <div class="max-w-xl bg-white rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
             <div class="p-5">
-                    <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white text-center">
+                    <h5 class="mb-2 text-${textClass} text-xl font-bold tracking-tight text-gray-900 dark:text-white text-center">
                         ${name}</h5>
                         <div class="flex space-x-6 justify-center">
                           <div class="text-xs font-bold uppercase text-teal-700 mt-1 mb-2">${location}</div>
@@ -159,8 +171,8 @@ const saveJob = () => {
     name: $("#editName").value,
     description: $("#editDescription").value,
     location: $("#locationFormEdit").value,
-    category: $("#seniorityFormEdit").value,
-    seniority: $("#categoriesFormEdit").value
+    seniority: $("#seniorityFormEdit").value,
+    category: $("#categoriesFormEdit").value
   }
 }
 
@@ -175,6 +187,10 @@ const showFormEdit = (job) => {
   $("#locationFormEdit").value = job.location;
   $("#seniorityFormEdit").value = job.seniority;
   $("#categoriesFormEdit").value = job.category;
+
+  console.log(job.location)
+  console.log(job.seniority)
+  console.log(job.category)
 };
 
 $("#formEditJob").addEventListener("submit", (e) => {
@@ -207,6 +223,9 @@ $("#submit-delete").addEventListener("click", () => {
 $("#btnCancelDelete").addEventListener("click", () =>{
   window.location.href = "index.html"
 })
+
+
+
 // filtros
 
 const searchLocation = (location) => {
@@ -250,3 +269,4 @@ $("#btnClean").addEventListener("click", () =>{
   $("#container-jobs").innerHTML = ""
  getJobs()
 })
+
