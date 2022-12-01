@@ -188,9 +188,6 @@ const showFormEdit = (job) => {
   $("#seniorityFormEdit").value = job.seniority;
   $("#categoriesFormEdit").value = job.category;
 
-  console.log(job.location)
-  console.log(job.seniority)
-  console.log(job.category)
 };
 
 $("#formEditJob").addEventListener("submit", (e) => {
@@ -204,8 +201,9 @@ $("#formEditJob").addEventListener("submit", (e) => {
 });
 
 $("#showForm").addEventListener("click", () => {
-  $("#container-jobs").classList.add("hidden");
+  $("#container-jobs").innerHTML = "";
   $("#formEditJob").classList.remove("hidden");
+  $("#container-jobs").classList.add("hidden");
   $("#filters").classList.add("hidden");
   $("#testimonials").classList.add("hidden");
   $("#submitEdit").classList.add("hidden");
@@ -262,7 +260,6 @@ $("#btnSearchJob").addEventListener("click", () =>{
   searchSeniority($("#seniorityFilters").value)
  
 })
-
 
 
 $("#btnClean").addEventListener("click", () =>{

@@ -59,9 +59,10 @@
     </nav>
 
     <div id="filters" class="">
-      <div class="flex w-[95%] space-x-4 mx-10 my-10 justify-center">
-            <select id="locationFilters" class="w-[33%] h-[44px] 
-                    rounded border border-blue-300 hover:border-indigo-300 outline-blue-500 mb-8">
+        <div
+            class="flex flex-col mx-auto w-full md:flex-row md:w-[95%] md:space-x-4 md:mx-10 md:my-10 md:justify-center">
+            <select id="locationFilters" class="md:w-[33%] md:h-[44px] mt-4 w-[70%] h-[44px] mx-auto
+                    rounded border border-blue-300 hover:border-indigo-300 outline-blue-500">
                 <option value="Locación">Locación</option>
                 <option value="Argentina">Argentina</option>
                 <option value="España">España</option>
@@ -71,49 +72,56 @@
             </select>
 
 
-            <select id="seniorityFilters" class="w-1/3 h-[44px] 
-                        rounded border border-blue-300 hover:border-indigo-300 outline-blue-500 mb-8">
-                    <option value="Seniority">Seniority</option>
-                    <option value="Trainee">Trainee</option>
-                    <option value="Junior">Junior</option>
-                    <option value="Semisenior">Semisenior</option>
-                    <option value="Senior">Senior</option>
+            <select id="seniorityFilters" class="md:w-[33%] md:h-[44px] mt-4 w-[70%] h-[44px] mx-auto
+            rounded border border-blue-300 hover:border-indigo-300 outline-blue-500">
+                <option value="Seniority">Seniority</option>
+                <option value="Trainee">Trainee</option>
+                <option value="Junior">Junior</option>
+                <option value="Semisenior">Semisenior</option>
+                <option value="Senior">Senior</option>
             </select>
 
 
-             <select id="categoriesFilters" class="w-1/3 h-[44px] 
-                            rounded border border-blue-300 hover:border-indigo-300 outline-blue-500 mb-8">
-                        <option value="Categoría">Categoría</option>
-                        <option value="Desarrollo">Desarrollo</option>
-                        <option value="Soporte">Soporte</option>
-                        <option value="Seguridad">Seguridad</option>
-                        <option value="Insfraestructura">Infraestructura</option>
-                        <option value="QA">QA</option>
-                    </select>
+            <select id="categoriesFilters" class="md:w-[33%] md:h-[44px] mt-4 w-[70%] h-[44px] mx-auto
+             rounded border border-blue-300 hover:border-indigo-300 outline-blue-500">
+                <option value="Categoría">Categoría</option>
+                <option value="Desarrollo">Desarrollo</option>
+                <option value="Soporte">Soporte</option>
+                <option value="Seguridad">Seguridad</option>
+                <option value="Insfraestructura">Infraestructura</option>
+                <option value="QA">QA</option>
+            </select>
 
-                    <button class="bg-blue-300 rounded w-[130px] h-10" id="btnSearchJob">Buscar</button>
-                    <button class="bg-blue-700 rounded w-[130px] h-10 text-white" id="btnClean">Limpiar</button>
+            <button class="md:w-[33%] md:h-[44px] mt-4 w-[70%] h-[44px] mx-auto
+                    rounded border border-blue-300 hover:border-indigo-300 outline-blue-500 bg-blue-300 md:w-[20%]"
+                id="btnSearchJob">Buscar</button>
+            <button
+                class="md:w-[33%] md:h-[44px] mt-4 w-[70%] h-[44px] mx-auto
+                    rounded border border-blue-300 hover:border-indigo-300 outline-blue-500 bg-blue-700 mb-10 md:w-[20%] text-white"
+                id="btnClean">Limpiar</button>
         </div>
-      
+
     </div>
-    
- 
+
+
     <div id="btnSpin" class="flex items-center justify-center">
         <div class="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full" role="status">
-          <span class="visually-hidden"></span>
+            <span class="visually-hidden"></span>
         </div>
-      </div>
-
-    <div class="grid grid-cols-4 mx-10" id="container-jobs">
     </div>
     
+        <div class="flex flex-col lg:grid grid-cols-4 mx-10" id="container-jobs">
+        </div>
+    
+
+
     <!-- TESTIMONIOS -->
     <div id="testimonials" class="mx-10 mt-32">
         <div class="w-full my-10">
             <h1 class=" text-center text-3xl">Testimonios</h1>
         </div>
-        <div class="flex space-x-10">
-            <div class="h-[30%] w-[30%] py-4 px-8 bg-blue-100 shadow-lg rounded-lg my-20">
+        <div class="flex flex-col md:flex-row md:space-x-10">
+            <div class="w-full md:h-[30%] md:w-[30%] py-4 px-8 bg-blue-100 shadow-lg rounded-lg my-20">
                 <div class="flex justify-center md:justify-end -mt-16">
                     <img class="w-20 h-20 object-cover rounded-full border-2 border-blue-500"
                         src="assets/FelipeElGato.jpeg" alt="El gato Felipe">
@@ -129,7 +137,7 @@
                 </div>
             </div>
 
-            <div class="h-[30%] w-[30%] py-4 px-8 bg-blue-100  shadow-lg rounded-lg my-20">
+            <div class="w-full md:h-[30%] md:w-[30%] py-4 px-8 bg-blue-100 shadow-lg rounded-lg my-20">
                 <div class="flex justify-center md:justify-end -mt-16">
                     <img class="w-20 h-20 object-cover rounded-full border-2 border-blue-500"
                         src="https://img.freepik.com/foto-gratis/mira-captura-recortada-atractivo-joven-apuesto-emocionado-camiseta-azul-que-senala-dedos-arriba-despues-haber-mirado-sorprendido-expresion-alegre-feliz-cara-broadley-sonriendo_176420-10316.jpg?w=2000"
@@ -145,7 +153,7 @@
                 </div>
             </div>
 
-            <div class="h-[30%] w-[30%] py-4 px-8 bg-blue-100  shadow-lg rounded-lg my-20">
+            <div class="w-full md:h-[30%] md:w-[30%] py-4 px-8 bg-blue-100 shadow-lg rounded-lg my-20">
                 <div class="flex justify-center md:justify-end -mt-16">
                     <img class="w-20 h-20 object-cover rounded-full border-2 border-blue-500"
                         src="https://static.independent.co.uk/2021/11/10/08/ESP-CEL_PEOPLE-PAUL_RUUD_73783.jpg?width=1200"
@@ -167,36 +175,39 @@
 
     <div id="alertDelete" class="hidden w-full md:w-1/3 mx-auto">
         <div class="flex flex-col p-5 rounded-lg shadow bg-white">
-          <div class="flex">
-            <div>
-              <svg class="w-6 h-6 fill-current text-red-500" xmlns="http://www.w3.org/2000/svg"></svg>
+            <div class="flex">
+                <div>
+                    <svg class="w-6 h-6 fill-current text-red-500" xmlns="http://www.w3.org/2000/svg"></svg>
+                </div>
+
+                <div class="ml-3">
+                    <h2 class="font-semibold text-gray-800">¡Atención!</h2>
+                    <p class="mt-2 text-sm text-gray-600 leading-relaxed">Esta por borrar un aviso de trabajo.¿Está
+                        seguro que desea continuar con la acción?</p>
+                </div>
             </div>
-      
-            <div class="ml-3">
-              <h2 class="font-semibold text-gray-800">¡Atención!</h2>
-              <p class="mt-2 text-sm text-gray-600 leading-relaxed">Esta por borrar un aviso de trabajo.¿Está seguro que desea continuar con la acción?</p>
+
+            <div class="flex items-center mt-3">
+                <button id="btnCancelDelete"
+                    class="flex-1 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md">
+                    Cancelar
+                </button>
+
+                <button id="submit-delete"
+                    class="flex-1 px-4 py-2 ml-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-md">
+                    Eliminar
+                </button>
             </div>
-          </div>
-      
-          <div class="flex items-center mt-3">
-            <button id="btnCancelDelete" class="flex-1 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md">
-              Cancelar
-            </button>
-      
-            <button id="submit-delete" class="flex-1 px-4 py-2 ml-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-md">
-              Eliminar
-            </button>
-          </div>
         </div>
-      </div>
+    </div>
 
 
 
     <!-- FORM EDIT  -->
 
-    <form id="formEditJob" class=" hidden mx-10">
+    <form id="formEditJob" class="hidden mx-10">
         <div class="mb-6">
-            <label for="editName" class="block mb-2 text-l font-bold">Nombre del
+            <label for="editName" class="block mb-2 text-l font-bold mt-4">Nombre del
                 puesto</label>
             <input type="text" id="editName"
                 class=" w-[90%]  h-[44px] rounded border border-blue-300 hover:border-indigo-300 outline-blue-500 mb-8"
@@ -204,7 +215,9 @@
         </div>
         <div class="mb-6">
             <label for="editName" class="block mb-2 text-l font-bold">Descripción</label>
-            <textarea class=" w-[90%]  h-[100px] rounded border border-blue-300 hover:border-indigo-300 outline-blue-500 mb-8"  id="editDescription" name="textarea" rows="10" cols="20"></textarea>
+            <textarea
+                class=" w-[90%]  h-[100px] rounded border border-blue-300 hover:border-indigo-300 outline-blue-500 mb-8"
+                id="editDescription" name="textarea" rows="10" cols="20"></textarea>
         </div>
 
         <div class="mb-6">
@@ -220,7 +233,8 @@
         </div>
         <div class="flex items-start mb-6">
             <select class="w-[90%] h-[44px] 
-            rounded border border-blue-300 hover:border-indigo-300 outline-blue-500 mb-8" id="seniorityFormEdit" value="">
+            rounded border border-blue-300 hover:border-indigo-300 outline-blue-500 mb-8" id="seniorityFormEdit"
+                value="">
                 <option value="Seniority">Seniority</option>
                 <option value="Trainee">Trainee</option>
                 <option value="Junior">Junior</option>
@@ -230,7 +244,8 @@
         </div>
         <div class="flex items-start mb-6">
             <select class="w-[90%] h-[44px] 
-            rounded border border-blue-300 hover:border-indigo-300 outline-blue-500 mb-8" id="categoriesFormEdit" value="">
+            rounded border border-blue-300 hover:border-indigo-300 outline-blue-500 mb-8" id="categoriesFormEdit"
+                value="">
                 <option value="Categoría">Categoría</option>
                 <option value="Desarrollo">Desarrollo</option>
                 <option value="Soporte">Soporte</option>
@@ -243,11 +258,12 @@
             <button type="submit"
                 class="text-white bg-green-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 id="submitEdit">Editar</button>
-                <button type="submit"
-                class="text-white bg-yellow-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="submit">Agregar</button>
+            <button type="submit"
+                class="text-white bg-yellow-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mb-4"
+                id="submit">Agregar</button>
             <button type="submit"
                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Cancelar</button>
-                
+
         </div>
 
 
@@ -257,7 +273,8 @@
     <footer id="footer"
         class="bg-gradient-to-r from-blue-500 via-blue-300 to-blue-500 w-full text-xl text-gray-800 text-blue-600 font-bold mt-32">
         <h1 class="text-center">Contáctanos por nuestras redes sociales</h1>
-        <div class=" md:flex items-center ml-[40%] w-full space-x-10 flex align-center font-bold">
+        <div
+            class="flex ml-[40%] align-center md:flex md:items-center md:w-full md:space-x-10 md:ml-[40%] md:font-bold">
             <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900"><i class="fa-brands fa-twitter"></i></a>
             <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900"><i class="fa-solid fa-envelope"></i></a>
             <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900"><i class="devicon-linkedin-plain"></i></a>
