@@ -6,6 +6,7 @@ btn.addEventListener("click", () => {
   menu.classList.toggle("hidden");
 });
 
+
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 
@@ -209,8 +210,6 @@ $("#showForm").addEventListener("click", () => {
   $("#submitEdit").classList.add("hidden");
   isSubmit = true
 
-
-
 })
 
 $("#submit-delete").addEventListener("click", () => {
@@ -218,7 +217,7 @@ $("#submit-delete").addEventListener("click", () => {
   deleteJob(jobId)
 })
 
-$("#btnCancelDelete").addEventListener("click", () =>{
+$("#btnCancelDelete").addEventListener("click", () => {
   window.location.href = "index.html"
 })
 
@@ -232,38 +231,85 @@ const searchLocation = (location) => {
     .then(data => listJobs(data))
 }
 
-$("#btnSearchJob").addEventListener("click", () =>{
+$("#btnSearchJob").addEventListener("click", () => {
   $("#container-jobs").innerHTML = ""
   searchLocation($("#locationFilters").value)
 })
 
-const searchCategory= (category) => {
+const searchCategory = (category) => {
   fetch(`https://638152199440b61b0d15c5d8.mockapi.io//jobs?category=${category}`)
     .then(res => res.json())
-    .then(data =>listJobs(data))
+    .then(data => listJobs(data))
 }
 
-$("#btnSearchJob").addEventListener("click", () =>{
+$("#btnSearchJob").addEventListener("click", () => {
   $("#container-jobs").innerHTML = ""
   searchCategory($("#categoriesFilters").value)
-  
+
 })
 
-const searchSeniority= (seniority) => {
+const searchSeniority = (seniority) => {
   fetch(`https://638152199440b61b0d15c5d8.mockapi.io//jobs?seniority=${seniority}`)
     .then(res => res.json())
-    .then(data =>listJobs(data))
+    .then(data => listJobs(data))
 }
 
-$("#btnSearchJob").addEventListener("click", () =>{
+$("#btnSearchJob").addEventListener("click", () => {
   $("#container-jobs").innerHTML = ""
   searchSeniority($("#seniorityFilters").value)
- 
+
 })
 
-
-$("#btnClean").addEventListener("click", () =>{
+$("#btnClean").addEventListener("click", () => {
   $("#container-jobs").innerHTML = ""
- getJobs()
+  getJobs()
 })
 
+
+
+$("#showJobs").addEventListener("click", () => {
+  $("#container-jobs").innerHTML = "";
+  $("#formEditJob").classList.add("hidden");
+  $("#filters").classList.remove("hidden");
+  $("#testimonials").classList.remove("hidden");
+  getJobs()
+
+})
+
+$("#showJobsMobile").addEventListener("click", () => {
+  $("#container-jobs").innerHTML = "";
+  $("#formEditJob").classList.add("hidden");
+  $("#filters").classList.remove("hidden");
+  $("#testimonials").classList.remove("hidden");
+  getJobs()
+
+})
+
+$("#testimonials-btn").addEventListener("click", () => {
+  $("#container-jobs").innerHTML = "";
+  $("#formEditJob").classList.add("hidden");
+  $("#filters").classList.remove("hidden");
+  $("#testimonials").classList.remove("hidden");
+  getJobs()
+
+})
+
+$("#showFormMobile").addEventListener("click", () => {
+  $("#container-jobs").innerHTML = "";
+  $("#formEditJob").classList.remove("hidden");
+  $("#container-jobs").classList.add("hidden");
+  $("#filters").classList.add("hidden");
+  $("#testimonials").classList.add("hidden");
+  $("#submitEdit").classList.add("hidden");
+  isSubmit = true
+
+})
+
+$("#logo").addEventListener("click", () => {
+  $("#container-jobs").innerHTML = "";
+  $("#formEditJob").classList.add("hidden");
+  $("#filters").classList.remove("hidden");
+  $("#testimonials").classList.remove("hidden");
+  getJobs()
+
+})

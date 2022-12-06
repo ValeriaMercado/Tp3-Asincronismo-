@@ -25,16 +25,16 @@
                 <div class="flex space-x-4 w-full px-10">
                     <!-- logo -->
                     <div class="">
-                        <a href="#" class="flex justify-start items-center py-5 px-2">
+                        <a href="#" id="logo" class="flex justify-start items-center py-5 px-2">
                             <img class="h-1/2" src="assets/LogoITJOBS.png" alt="LogoITJOBS">
                         </a>
                     </div>
 
                     <!-- primary nav -->
                     <div class="hidden md:flex items-center ml-[40%] w-full space-x-10 flex justify-end font-bold">
-                        <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900">Empleos</a>
+                        <a href="#"  id="showJobs" class="py-5 px-3 text-gray-700 hover:text-gray-900">Empleos</a>
                         <a href="#" id="showForm" class="py-5 px-3 text-gray-700 hover:text-gray-900">Agregar oferta</a>
-                        <a href="#testimonials" class="py-5 px-3 text-gray-700 hover:text-gray-900">Testimonios</a>
+                        <a href="#testimonials" id="testimonials-btn" class="py-5 px-3 text-gray-700 hover:text-gray-900">Testimonios</a>
                         <a href="#footer" class="py-5 px-3 text-gray-700 hover:text-gray-900">Contacto</a>
                     </div>
                 </div>
@@ -51,9 +51,9 @@
 
         <!-- mobile menu -->
         <div class="mobile-menu hidden md:hidden">
-            <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">Empleos</a>
-            <a href="#" id="showForm" class="block py-2 px-4 text-sm hover:bg-gray-200">Agregar oferta laboral</a>
-            <a href="#testimonios" class="block py-2 px-4 text-sm hover:bg-gray-200">Testimonios</a>
+            <a href="#" id="showJobsMobile" class="block py-2 px-4 text-sm hover:bg-gray-200">Empleos</a>
+            <a href="#" id="showFormMobile" class="block py-2 px-4 text-sm hover:bg-gray-200">Agregar oferta laboral</a>
+            <a href="#testimonials" id="testimonials-btn" class="block py-2 px-4 text-sm hover:bg-gray-200">Testimonios</a>
             <a href="#footer" class="block py-2 px-4 text-sm hover:bg-gray-200">Contacto</a>
         </div>
     </nav>
