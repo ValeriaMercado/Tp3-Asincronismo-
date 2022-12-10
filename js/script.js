@@ -92,7 +92,7 @@ const listJobs = (jobs) => {
       $("#container-jobs").innerHTML += `
     <div class=" h-[10%] w-full mx-auto px-5 mb-3">
         <div class="max-w-xl  bg-white rounded-lg border border-blue-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
-         <h5 class="mb-2 bg-blue-300 w-full h-[40px] text-xl font-bold tracking-tight dark:text-white align-center text-center">
+         <h5 class="mb-2 bg-blue-300 w-full h-[40px] py-2 text-xl font-bold tracking-tight dark:text-white align-center text-center">
                         ${name}</h5>
             <div class="p-5">
                         <div class="w-[130px] mx-auto">
@@ -261,16 +261,30 @@ const searchSeniority = (seniority) => {
 };
 
 $("#btnSearchJob").addEventListener("click", () => {
-  setTimeout(() => {
-    $("#btnSpin").innerHTML = " ";
-    $("#container-jobs").innerHTML = "";
-    searchSeniority($("#seniorityFilters").value);
-  }, 2000);
+  $("#container-jobs").innerHTML = "";
+  searchSeniority($("#seniorityFilters").value);
 });
 
 $("#btnClean").addEventListener("click", () => {
   $("#container-jobs").innerHTML = "";
   getJobs();
+});
+
+//Reset filters
+
+$("#locationFilters").addEventListener("change", () => {
+  $("#categoriesFilters").selectedIndex = 0;
+  $("#seniorityFilters").selectedIndex = 0;
+});
+
+$("#categoriesFilters").addEventListener("change", () => {
+  $("#locationFilters").selectedIndex = 0;
+  $("#seniorityFilters").selectedIndex = 0;
+});
+
+$("#seniorityFilters").addEventListener("change", () => {
+  $("#locationFilters").selectedIndex = 0;
+  $("#categoriesFilters").selectedIndex = 0;
 });
 
 $("#showJobs").addEventListener("click", () => {
