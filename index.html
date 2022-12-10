@@ -17,7 +17,7 @@
 
 <body class="font-[Antic] w-full mx-0 overflow-x-hidden">
     <nav id="navMenu"
-        class="bg-gradient-to-r from-blue-500 via-blue-300 to-blue-500 w-[100%] font-[Antic] text-blue-600 font-bold">
+        class="bg-gradient-to-r from-blue-500 text-xl via-blue-300 to-blue-500 w-[100%] font-[Antic] text-blue-600 font-bold">
 
         <div class="mx-auto px-4">
             <div class="flex justify-between">
@@ -32,9 +32,11 @@
 
                     <!-- primary nav -->
                     <div class="hidden md:flex items-center ml-[40%] w-full space-x-10 flex justify-end font-bold">
-                        <a href="#"  id="showJobs" class="py-5 px-3 text-gray-700 hover:text-gray-900">Empleos</a>
+                        <a href="#" id="showJobs"
+                            class="py-5 bg-blue-400 rounded-lg h-15 px-3 text-gray-700 hover:text-gray-900">Empleos</a>
                         <a href="#" id="showForm" class="py-5 px-3 text-gray-700 hover:text-gray-900">Agregar oferta</a>
-                        <a href="#testimonials" id="testimonials-btn" class="py-5 px-3 text-gray-700 hover:text-gray-900">Testimonios</a>
+                        <a href="#testimonials" id="testimonials-btn"
+                            class="py-5 px-3 text-gray-700 hover:text-gray-900">Testimonios</a>
                         <a href="#footer" class="py-5 px-3 text-gray-700 hover:text-gray-900">Contacto</a>
                     </div>
                 </div>
@@ -51,9 +53,10 @@
 
         <!-- mobile menu -->
         <div class="mobile-menu hidden md:hidden">
-            <a href="#" id="showJobsMobile" class="block py-2 px-4 text-sm hover:bg-gray-200">Empleos</a>
+            <a href="#" id="showJobsMobile" class="block bg-blue-700 py-2 px-4 text-sm hover:bg-gray-200">Empleos</a>
             <a href="#" id="showFormMobile" class="block py-2 px-4 text-sm hover:bg-gray-200">Agregar oferta laboral</a>
-            <a href="#testimonials" id="testimonials-btn" class="block py-2 px-4 text-sm hover:bg-gray-200">Testimonios</a>
+            <a href="#testimonials" id="testimonials-btn"
+                class="block py-2 px-4 text-sm hover:bg-gray-200">Testimonios</a>
             <a href="#footer" class="block py-2 px-4 text-sm hover:bg-gray-200">Contacto</a>
         </div>
     </nav>
@@ -105,67 +108,71 @@
 
 
     <div id="btnSpin" class="flex items-center justify-center">
-        <div class="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full" role="status">
-            <span class="visually-hidden"></span>
+        <div class="animate-spin inline-block w-10 h-10 border-[3px] border-current border-t-transparent text-blue-600 rounded-full"
+            role="status" aria-label="loading">
         </div>
     </div>
-    
-        <div class="flex flex-col lg:grid grid-cols-4 mx-10" id="container-jobs">
-        </div>
-    
+
+    <div class="flex flex-col lg:grid grid-cols-4 mx-10" id="container-jobs">
+    </div>
+
 
 
     <!-- TESTIMONIOS -->
-    <div id="testimonials" class="mx-10 mt-32">
-        <div class="w-full my-10">
-            <h1 class=" text-center text-3xl">Testimonios</h1>
+    <div id="testimonials" class=" h-full px-10 bg-gradient-to-r from-blue-500 via-blue-300 to-blue-500 w-full mt-32">
+        <div class=" ">
+            <h1 class="mt-10 text-center font-bold text-3xl">Testimonios</h1>
         </div>
         <div class="flex flex-col md:flex-row md:space-x-10">
-            <div class="w-full md:h-[30%] md:w-[30%] py-4 px-8 bg-blue-100 shadow-lg rounded-lg my-20">
+            <div class="w-full md:h-[30%] md:w-[30%] py-4 px-8 bg-blue-100  shadow-lg rounded-lg my-20">
                 <div class="flex justify-center md:justify-end -mt-16">
-                    <img class="w-20 h-20 object-cover rounded-full border-2 border-blue-500"
+                    <img class="w-20 h-20 object-cover rounded-full border-2 border-black"
                         src="assets/FelipeElGato.jpeg" alt="El gato Felipe">
                 </div>
                 <div>
-                    <h2 class=" text-center text-gray-800 text-3xl font-semibold">"Gracias IT Jobs"</h2>
-                    <p class="mt-2 text-gray-600">Gracias a éste portal de trabajos, mi humano consiguió empleo y
+                    <h2 class=" text-center text-gray-800 text-3xl font-bold ">"Gracias IT Jobs"</h2>
+                    <p class="mt-2  text-gray-600 font-bold">Gracias a éste portal de trabajos, mi humano
+                        consiguió
+                        empleo y
                         trabaja
                         desde casa, por lo que puedo pasar mas tiempo con él!</p>
                 </div>
                 <div class="flex justify-end mt-4">
-                    <a href="#" class="text-xl font-medium text-black">Felipe, el gato</a>
+                    <a href="#" class="text-xl font-bold text-black">Felipe, el gato</a>
                 </div>
             </div>
 
             <div class="w-full md:h-[30%] md:w-[30%] py-4 px-8 bg-blue-100 shadow-lg rounded-lg my-20">
                 <div class="flex justify-center md:justify-end -mt-16">
-                    <img class="w-20 h-20 object-cover rounded-full border-2 border-blue-500"
+                    <img class="w-20 h-20 object-cover rounded-full border-2 border-black"
                         src="https://img.freepik.com/foto-gratis/mira-captura-recortada-atractivo-joven-apuesto-emocionado-camiseta-azul-que-senala-dedos-arriba-despues-haber-mirado-sorprendido-expresion-alegre-feliz-cara-broadley-sonriendo_176420-10316.jpg?w=2000"
                         alt="persona1">
                 </div>
                 <div>
-                    <h2 class="text-center text-gray-800 text-3xl font-semibold">"Una gran herramienta"</h2>
-                    <p class="mt-2 text-gray-600">¡A través de ésta página pude postularme a varias ofertas laborales y
+                    <h2 class="text-center text-gray-800 text-3xl font-bold">"Una gran herramienta"</h2>
+                    <p class="mt-2 text-gray-600 font-bold">¡A través de ésta página pude postularme a varias ofertas
+                        laborales y
                         encontré el trabajo de mis sueños!</p>
                 </div>
                 <div class="flex justify-end mt-4">
-                    <a href="#" class="text-xl font-medium text-black">Pepe Honguito</a>
+                    <a href="#" class="text-xl font-bold text-black">Pepe Honguito</a>
                 </div>
             </div>
 
             <div class="w-full md:h-[30%] md:w-[30%] py-4 px-8 bg-blue-100 shadow-lg rounded-lg my-20">
                 <div class="flex justify-center md:justify-end -mt-16">
-                    <img class="w-20 h-20 object-cover rounded-full border-2 border-blue-500"
+                    <img class="w-20 h-20 object-cover rounded-full border-2 border-black"
                         src="https://static.independent.co.uk/2021/11/10/08/ESP-CEL_PEOPLE-PAUL_RUUD_73783.jpg?width=1200"
                         alt="persona2">
                 </div>
                 <div>
-                    <h2 class="text-center text-gray-800 text-3xl font-semibold">"¡La recomiendo!"</h2>
-                    <p class="mt-2 text-gray-600">Un gran portal de empleos para quiénes nos dedicamos al rubro IT,
+                    <h2 class="text-center text-gray-800 text-3xl font-bold">"¡La recomiendo!"</h2>
+                    <p class="mt-2 text-gray-600 font-bold">Un gran portal de empleos para quiénes nos dedicamos al
+                        rubro IT,
                         dónde se suben empleos todo el tiempo, y es de fácil postulación</p>
                 </div>
                 <div class="flex justify-end mt-4">
-                    <a href="#" class="text-xl font-medium text-black">Paulo Rudd</a>
+                    <a href="#" class="text-xl font-bold text-black">Paulo Rudd</a>
                 </div>
             </div>
         </div>

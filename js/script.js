@@ -6,11 +6,10 @@ btn.addEventListener("click", () => {
   menu.classList.toggle("hidden");
 });
 
-
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 
-let isSubmit = false
+let isSubmit = false;
 
 const getJobs = () => {
   fetch("https://638152199440b61b0d15c5d8.mockapi.io/jobs")
@@ -28,16 +27,15 @@ const jobAsync = async (id) => {
   return job;
 };
 
-
 const addJob = () => {
   fetch("https://638152199440b61b0d15c5d8.mockapi.io/jobs", {
     method: "POST",
     headers: {
-      'Content-Type': 'Application/json'
+      "Content-Type": "Application/json",
     },
-    body: JSON.stringify(saveJob())
-  }).finally(() => window.location.href = "index.html")
-}
+    body: JSON.stringify(saveJob()),
+  }).finally(() => (window.location.href = "index.html"));
+};
 
 const editJob = (id) => {
   fetch(`https://638152199440b61b0d15c5d8.mockapi.io/jobs/${id}`, {
@@ -67,35 +65,47 @@ const saveJobInfo = () => {
 
 const listJobs = (jobs) => {
   setTimeout(() => {
-    $("#btnSpin").innerHTML = ""
-    for (const { id, name, description, location, category, seniority } of jobs) {
-      let textClass = ''
-      if (name === "Backend Developer") {
-        textClass = "red-700"
-      } else if (name === "Frontend Developer") {
-        textClass = "blue-700"
-      } else if (name === "Tester") {
-        textClass = "green-500"
-      } else if (name === "Architect") {
-        textClass = "pink-500"
-      } else if (name === "DevOps") {
-        textClass = "purple-500"
+    $("#btnSpin").innerHTML = "";
+    for (const {
+      id,
+      name,
+      description,
+      location,
+      category,
+      seniority,
+    } of jobs) {
+      let img = "";
+      if (category === "Desarrollo") {
+        img =
+          "https://www.pngplay.com/wp-content/uploads/13/Programmer-PNG-Photos.png";
+      } else if (category === "Soporte") {
+        img =
+          "https://www.jalpro.com/wp-content/uploads/2019/09/soporte_pc2-1024x1024.png";
+      } else if (category === "Seguridad") {
+        img = "https://cdn-icons-png.flaticon.com/512/1995/1995704.png";
+      } else if (category === "Insfraestructura") {
+        img = "https://cdn-icons-png.flaticon.com/512/3043/3043543.png";
+      } else if (category === "QA") {
+        img =
+          "https://www.amaris.com/wp-content/uploads/2020/08/Quality-Assurance-Quality-Control.png";
       }
       $("#container-jobs").innerHTML += `
     <div class=" h-[10%] w-full mx-auto px-5 mb-3">
-        <div class="max-w-xl bg-white rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
-            <div class="p-5">
-                    <h5 class="mb-2 text-${textClass} text-xl font-bold tracking-tight text-gray-900 dark:text-white text-center">
+        <div class="max-w-xl  bg-white rounded-lg border border-blue-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
+         <h5 class="mb-2 bg-blue-300 w-full h-[40px] py-2 text-xl font-bold tracking-tight dark:text-white align-center text-center">
                         ${name}</h5>
-                        <div class="flex space-x-6 justify-center">
-                          <div class="text-xs font-bold uppercase text-teal-700 mt-1 mb-2">${location}</div>
-                          <div class="text-xs font-bold uppercase text-black-700 mt-1 mb-2">${category}</div>
-                          <div class="text-xs font-bold uppercase text-red-700 mt-1 mb-2">${seniority}</div>
+            <div class="p-5">
+                        <div class="w-[130px] mx-auto">
+                        <img src=${img}></div>
+                        <div class="flex space-x-4 justify-center">
+                          <div class="text-sm font-bold uppercase text-teal-700 mt-1 mb-2">${location}</div>
+                          <div class="text-sm font-bold uppercase text-black-700 mt-1 mb-2">${category}</div>
+                          <div class="text-sm font-bold uppercase text-red-700 mt-1 mb-2">${seniority}</div>
                         </div>
 
-                        <p class="truncate mb-3 text-sm text-gray-700 dark:text-gray-400">${description}<p>
+                        <p class="truncate mb-3 text-m font-bold dark:text-gray-400">${description}<p>
                
-                  <div class = "flex justify-between text-center space-x-4">
+                  <div class = "flex justify-between text-center space-x-4 font-bold">
                     <a href="#" class="h-1/3 w-1/3 rounded bg-blue-200 btn-details" data-id="${id}">Ver detalles</a>
                
                   </div>
@@ -111,15 +121,12 @@ const listJobs = (jobs) => {
         jobAsync(jobId).then((data) => detailsJob(data));
       });
     }
-  }, 2000)
-
-
-
+  }, 2000);
 };
 
 const detailsJob = (job) => {
   setTimeout(() => {
-    $("#btnSpin").innerHTML = ""
+    $("#btnSpin").innerHTML = "";
     $("#container-jobs").innerHTML = `
     <div class="max-w-xl flex justify-items-center bg-white rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
     <div class="p-5">
@@ -131,7 +138,7 @@ const detailsJob = (job) => {
                   <div class="text-xs font-bold uppercase text-red-700 mt-1 mb-2">${job.seniority}</div>
                 </div>
   
-                <p class="mb-3 text-sm text-gray-700 dark:text-gray-400">${job.description}<p>
+                <p class="mb-3 text-m font-bold  dark:text-gray-400">${job.description}<p>
        
           <div class = "flex justify-between text-center space-x-4">
           <a href="#" class="h-1/3 w-1/3 rounded bg-green-500 btn-edit" data-id="${job.id}" >Editar</a>
@@ -144,7 +151,7 @@ const detailsJob = (job) => {
 
     for (const btn of $$(".btn-edit")) {
       btn.addEventListener("click", () => {
-        isSubmit = false
+        isSubmit = false;
         const jobId = btn.getAttribute("data-id");
         $("#submitEdit").setAttribute("data-id", jobId);
         jobAsync(jobId).then((data) => showFormEdit(data));
@@ -154,17 +161,15 @@ const detailsJob = (job) => {
     for (const btn of $$(".btn-delete")) {
       btn.addEventListener("click", () => {
         $("#container-jobs").classList.add("hidden");
-        $("#alertDelete").classList.remove("hidden")
+        $("#alertDelete").classList.remove("hidden");
         $("#filters").classList.add("hidden");
         $("#testimonials").classList.add("hidden");
         const jobId = btn.getAttribute("data-id");
-        $("#submit-delete").setAttribute("data-id", jobId)
+        $("#submit-delete").setAttribute("data-id", jobId);
         // deleteJob(jobId);
       });
     }
-  }, 2000)
-
-
+  }, 2000);
 };
 
 const saveJob = () => {
@@ -173,9 +178,9 @@ const saveJob = () => {
     description: $("#editDescription").value,
     location: $("#locationFormEdit").value,
     seniority: $("#seniorityFormEdit").value,
-    category: $("#categoriesFormEdit").value
-  }
-}
+    category: $("#categoriesFormEdit").value,
+  };
+};
 
 const showFormEdit = (job) => {
   $("#container-jobs").innerHTML = "";
@@ -188,13 +193,12 @@ const showFormEdit = (job) => {
   $("#locationFormEdit").value = job.location;
   $("#seniorityFormEdit").value = job.seniority;
   $("#categoriesFormEdit").value = job.category;
-
 };
 
 $("#formEditJob").addEventListener("submit", (e) => {
   e.preventDefault();
   if (isSubmit) {
-    addJob()
+    addJob();
   } else {
     const id = $("#submitEdit").getAttribute("data-id");
     editJob(id);
@@ -208,91 +212,104 @@ $("#showForm").addEventListener("click", () => {
   $("#filters").classList.add("hidden");
   $("#testimonials").classList.add("hidden");
   $("#submitEdit").classList.add("hidden");
-  isSubmit = true
-
-})
+  isSubmit = true;
+});
 
 $("#submit-delete").addEventListener("click", () => {
-  const jobId = $("#submit-delete").getAttribute("data-id")
-  deleteJob(jobId)
-})
+  const jobId = $("#submit-delete").getAttribute("data-id");
+  deleteJob(jobId);
+});
 
 $("#btnCancelDelete").addEventListener("click", () => {
-  window.location.href = "index.html"
-})
-
-
+  window.location.href = "index.html";
+});
 
 // filtros
 
 const searchLocation = (location) => {
-  fetch(`https://638152199440b61b0d15c5d8.mockapi.io//jobs?location=${location}`)
-    .then(res => res.json())
-    .then(data => listJobs(data))
-}
+  fetch(
+    `https://638152199440b61b0d15c5d8.mockapi.io//jobs?location=${location}`
+  )
+    .then((res) => res.json())
+    .then((data) => listJobs(data));
+};
 
 $("#btnSearchJob").addEventListener("click", () => {
-  $("#container-jobs").innerHTML = ""
-  searchLocation($("#locationFilters").value)
-})
+  $("#container-jobs").innerHTML = "";
+  searchLocation($("#locationFilters").value);
+});
 
 const searchCategory = (category) => {
-  fetch(`https://638152199440b61b0d15c5d8.mockapi.io//jobs?category=${category}`)
-    .then(res => res.json())
-    .then(data => listJobs(data))
-}
+  fetch(
+    `https://638152199440b61b0d15c5d8.mockapi.io//jobs?category=${category}`
+  )
+    .then((res) => res.json())
+    .then((data) => listJobs(data));
+};
 
 $("#btnSearchJob").addEventListener("click", () => {
-  $("#container-jobs").innerHTML = ""
-  searchCategory($("#categoriesFilters").value)
-
-})
+  $("#container-jobs").innerHTML = "";
+  searchCategory($("#categoriesFilters").value);
+});
 
 const searchSeniority = (seniority) => {
-  fetch(`https://638152199440b61b0d15c5d8.mockapi.io//jobs?seniority=${seniority}`)
-    .then(res => res.json())
-    .then(data => listJobs(data))
-}
+  fetch(
+    `https://638152199440b61b0d15c5d8.mockapi.io//jobs?seniority=${seniority}`
+  )
+    .then((res) => res.json())
+    .then((data) => listJobs(data));
+};
 
 $("#btnSearchJob").addEventListener("click", () => {
-  $("#container-jobs").innerHTML = ""
-  searchSeniority($("#seniorityFilters").value)
-
-})
+  $("#container-jobs").innerHTML = "";
+  searchSeniority($("#seniorityFilters").value);
+});
 
 $("#btnClean").addEventListener("click", () => {
-  $("#container-jobs").innerHTML = ""
-  getJobs()
-})
+  $("#container-jobs").innerHTML = "";
+  getJobs();
+});
 
+//Reset filters
 
+$("#locationFilters").addEventListener("change", () => {
+  $("#categoriesFilters").selectedIndex = 0;
+  $("#seniorityFilters").selectedIndex = 0;
+});
+
+$("#categoriesFilters").addEventListener("change", () => {
+  $("#locationFilters").selectedIndex = 0;
+  $("#seniorityFilters").selectedIndex = 0;
+});
+
+$("#seniorityFilters").addEventListener("change", () => {
+  $("#locationFilters").selectedIndex = 0;
+  $("#categoriesFilters").selectedIndex = 0;
+});
 
 $("#showJobs").addEventListener("click", () => {
   $("#container-jobs").innerHTML = "";
   $("#formEditJob").classList.add("hidden");
   $("#filters").classList.remove("hidden");
   $("#testimonials").classList.remove("hidden");
-  getJobs()
-
-})
+  getJobs();
+});
 
 $("#showJobsMobile").addEventListener("click", () => {
   $("#container-jobs").innerHTML = "";
   $("#formEditJob").classList.add("hidden");
   $("#filters").classList.remove("hidden");
   $("#testimonials").classList.remove("hidden");
-  getJobs()
-
-})
+  getJobs();
+});
 
 $("#testimonials-btn").addEventListener("click", () => {
   $("#container-jobs").innerHTML = "";
   $("#formEditJob").classList.add("hidden");
   $("#filters").classList.remove("hidden");
   $("#testimonials").classList.remove("hidden");
-  getJobs()
-
-})
+  getJobs();
+});
 
 $("#showFormMobile").addEventListener("click", () => {
   $("#container-jobs").innerHTML = "";
@@ -301,15 +318,14 @@ $("#showFormMobile").addEventListener("click", () => {
   $("#filters").classList.add("hidden");
   $("#testimonials").classList.add("hidden");
   $("#submitEdit").classList.add("hidden");
-  isSubmit = true
-
-})
+  isSubmit = true;
+});
 
 $("#logo").addEventListener("click", () => {
+  $("#btnSpin").innerHTML = "";
   $("#container-jobs").innerHTML = "";
   $("#formEditJob").classList.add("hidden");
   $("#filters").classList.remove("hidden");
   $("#testimonials").classList.remove("hidden");
-  getJobs()
-
-})
+  getJobs();
+});
