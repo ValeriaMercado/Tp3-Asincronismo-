@@ -11,6 +11,9 @@ const $$ = (selector) => document.querySelectorAll(selector);
 
 let isSubmit = false;
 
+const hideSpinner = (selector) => selector.classList.add("hidden");
+const showSpinner = (selector) => selector.classList.remove("hidden");
+
 const getJobs = () => {
   fetch("https://638152199440b61b0d15c5d8.mockapi.io/jobs")
     .then((res) => res.json())
@@ -64,8 +67,9 @@ const saveJobInfo = () => {
 };
 
 const listJobs = (jobs) => {
+  showSpinner($("#btnSpin"));
   setTimeout(() => {
-    $("#btnSpin").innerHTML = "";
+    hideSpinner($("#btnSpin"));
     for (const {
       id,
       name,
@@ -82,9 +86,11 @@ const listJobs = (jobs) => {
         img =
           "https://www.jalpro.com/wp-content/uploads/2019/09/soporte_pc2-1024x1024.png";
       } else if (category === "Seguridad") {
-        img = "https://cdn-icons-png.flaticon.com/512/1995/1995704.png";
+        img =
+          "https://www.sos-info.es/wp-content/uploads/2019/10/info-sec-service_12.png";
       } else if (category === "Insfraestructura") {
-        img = "https://cdn-icons-png.flaticon.com/512/3043/3043543.png";
+        img =
+          "https://www.believeit.cl/wp-content/uploads/2019/04/datacenter.png";
       } else if (category === "QA") {
         img =
           "https://www.amaris.com/wp-content/uploads/2020/08/Quality-Assurance-Quality-Control.png";
@@ -95,18 +101,18 @@ const listJobs = (jobs) => {
          <h5 class="mb-2 bg-blue-300 w-full h-[40px] py-2 text-xl font-bold tracking-tight dark:text-white align-center text-center">
                         ${name}</h5>
             <div class="p-5">
-                        <div class="w-[130px] mx-auto">
+                        <div class="w-[140px] mx-auto">
                         <img src=${img}></div>
-                        <div class="flex space-x-4 justify-center">
-                          <div class="text-sm font-bold uppercase text-teal-700 mt-1 mb-2">${location}</div>
-                          <div class="text-sm font-bold uppercase text-black-700 mt-1 mb-2">${category}</div>
-                          <div class="text-sm font-bold uppercase text-red-700 mt-1 mb-2">${seniority}</div>
+                        <div class="flex space-x-2 justify-center">
+                          <div class="text-xs font-bold uppercase bg-green-600 text-white p-[2px] rounded mt-4 mb-2">${location}</div>
+                          <div class="text-xs font-bold uppercase bg-gray-600 text-white p-[2px] rounded mt-4 mb-2">${category}</div>
+                          <div class="text-xs font-bold uppercase bg-red-600 text-white p-[2px] rounded mt-4 mb-2">${seniority}</div>
                         </div>
 
                         <p class="truncate mb-3 text-m font-bold dark:text-gray-400">${description}<p>
                
                   <div class = "flex justify-between text-center space-x-4 font-bold">
-                    <a href="#" class="h-1/3 w-1/3 rounded bg-blue-200 btn-details" data-id="${id}">Ver detalles</a>
+                    <a href="#" class="h-1/3 w-1/2 rounded bg-blue-200 btn-details p-[2px]" data-id="${id}">Ver detalles</a>
                
                   </div>
             </div>
@@ -117,6 +123,8 @@ const listJobs = (jobs) => {
     }
     for (const btn of $$(".btn-details")) {
       btn.addEventListener("click", () => {
+        $("#btnSpin").innerHTML = "";
+        $("#container-jobs").innerHTML = " ";
         const jobId = btn.getAttribute("data-id");
         jobAsync(jobId).then((data) => detailsJob(data));
       });
@@ -125,25 +133,45 @@ const listJobs = (jobs) => {
 };
 
 const detailsJob = (job) => {
+  showSpinner($("#btnSpin2"));
   setTimeout(() => {
-    $("#btnSpin").innerHTML = "";
+    hideSpinner($("#btnSpin2"));
+    let img = "";
+    if (job.category === "Desarrollo") {
+      img =
+        "https://www.pngplay.com/wp-content/uploads/13/Programmer-PNG-Photos.png";
+    } else if (job.category === "Soporte") {
+      img =
+        "https://www.jalpro.com/wp-content/uploads/2019/09/soporte_pc2-1024x1024.png";
+    } else if (job.category === "Seguridad") {
+      img =
+        "https://www.sos-info.es/wp-content/uploads/2019/10/info-sec-service_12.png";
+    } else if (job.category === "Insfraestructura") {
+      img =
+        "https://www.believeit.cl/wp-content/uploads/2019/04/datacenter.png";
+    } else if (job.category === "QA") {
+      img =
+        "https://www.amaris.com/wp-content/uploads/2020/08/Quality-Assurance-Quality-Control.png";
+    }
     $("#container-jobs").innerHTML = `
     <div class="max-w-xl flex justify-items-center bg-white rounded-lg border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700">
-    <div class="p-5">
+    <div class="detailCard p-5">
             <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white text-center">
                 ${job.name}</h5>
-                <div class="flex space-x-6 justify-center">
-                  <div class="text-xs font-bold uppercase text-teal-700 mt-1 mb-2">${job.location}</div>
-                  <div class="text-xs font-bold uppercase text-black-700 mt-1 mb-2">${job.category}</div>
-                  <div class="text-xs font-bold uppercase text-red-700 mt-1 mb-2">${job.seniority}</div>
+                  <div class="w-[140px] mx-auto">
+                        <img src=${img}></div>
+                <div class="flex space-x-6 justify-center mt-4">
+                  <div class="text-xs font-bold uppercase bg-green-600 text-white p-[2px] rounded mt-1 mb-2">${job.location}</div>
+                  <div class="text-xs font-bold uppercase bg-gray-600 text-white p-[2px] rounded  mt-1 mb-2">${job.category}</div>
+                  <div class="text-xs font-bold uppercase  bg-red-600 text-white p-[2px] rounded  mt-1 mb-2">${job.seniority}</div>
                 </div>
   
                 <p class="mb-3 text-m font-bold  dark:text-gray-400">${job.description}<p>
        
           <div class = "flex justify-between text-center space-x-4">
-          <a href="#" class="h-1/3 w-1/3 rounded bg-green-500 btn-edit" data-id="${job.id}" >Editar</a>
-          <a href="#" class="h-1/3 w-1/3 rounded bg-red-500 btn-delete" data-id="${job.id}">Eliminar</a>
-          <a href="#" class="h-1/3 w-1/3 rounded bg-blue-500 btn-back">Volver</a>
+          <a href="#" class="h-1/3 w-1/3 font-bold rounded bg-green-500 btn-edit" data-id="${job.id}" >Editar</a>
+          <a href="#" class="h-1/3 w-1/3 font-bold rounded bg-red-500 btn-delete" data-id="${job.id}">Eliminar</a>
+          <a href="#" class="h-1/3 w-1/3 font-bold rounded bg-blue-500 btn-back">Volver</a>
        
           </div>
     </div>
@@ -158,15 +186,22 @@ const detailsJob = (job) => {
       });
     }
 
+    for (const btn of $$(".btn-back")) {
+      btn.addEventListener("click", () => {
+        window.location.href = "index.html";
+      });
+    }
+
     for (const btn of $$(".btn-delete")) {
       btn.addEventListener("click", () => {
+        $(".detailCard").classList.add("hidden");
         $("#container-jobs").classList.add("hidden");
         $("#alertDelete").classList.remove("hidden");
         $("#filters").classList.add("hidden");
         $("#testimonials").classList.add("hidden");
+        $("#footer").classList.add("hidden");
         const jobId = btn.getAttribute("data-id");
         $("#submit-delete").setAttribute("data-id", jobId);
-        // deleteJob(jobId);
       });
     }
   }, 2000);
@@ -224,7 +259,7 @@ $("#btnCancelDelete").addEventListener("click", () => {
   window.location.href = "index.html";
 });
 
-// filtros
+// filters
 
 const searchLocation = (location) => {
   fetch(
@@ -235,8 +270,12 @@ const searchLocation = (location) => {
 };
 
 $("#btnSearchJob").addEventListener("click", () => {
-  $("#container-jobs").innerHTML = "";
-  searchLocation($("#locationFilters").value);
+  showSpinner($("#btnSpin2"));
+  setTimeout(() => {
+    hideSpinner($("#btnSpin2"));
+    $("#container-jobs").innerHTML = "";
+    searchLocation($("#locationFilters").value);
+  }, 2000);
 });
 
 const searchCategory = (category) => {
@@ -248,8 +287,12 @@ const searchCategory = (category) => {
 };
 
 $("#btnSearchJob").addEventListener("click", () => {
-  $("#container-jobs").innerHTML = "";
-  searchCategory($("#categoriesFilters").value);
+  showSpinner($("#btnSpin2"));
+  setTimeout(() => {
+    hideSpinner($("#btnSpin2"));
+    $("#container-jobs").innerHTML = "";
+    searchCategory($("#categoriesFilters").value);
+  }, 2000);
 });
 
 const searchSeniority = (seniority) => {
@@ -261,8 +304,12 @@ const searchSeniority = (seniority) => {
 };
 
 $("#btnSearchJob").addEventListener("click", () => {
-  $("#container-jobs").innerHTML = "";
-  searchSeniority($("#seniorityFilters").value);
+  showSpinner($("#btnSpin2"));
+  setTimeout(() => {
+    hideSpinner($("#btnSpin2"));
+    $("#container-jobs").innerHTML = "";
+    searchSeniority($("#seniorityFilters").value);
+  }, 2000);
 });
 
 $("#btnClean").addEventListener("click", () => {
@@ -286,6 +333,8 @@ $("#seniorityFilters").addEventListener("change", () => {
   $("#locationFilters").selectedIndex = 0;
   $("#categoriesFilters").selectedIndex = 0;
 });
+
+//Buttons
 
 $("#showJobs").addEventListener("click", () => {
   $("#container-jobs").innerHTML = "";
