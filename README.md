@@ -8,9 +8,9 @@ la carrera de **Desarrollo Frontend** que curso actualmente en **ADA ITW.**
 
 En el sitio podrán encontrar diferentes secciones, tales cómo:
 
-💻 Sección para agregar nuevos empleos.
-💻 Testimonios de usuarios
-💻 Contacto, en dónde podrán encontrar diferentes medios para contactarme.
+* Sección para agregar nuevos empleos 💻
+* Testimonios de usuarios 💻
+* Contacto, en dónde podrán encontrar diferentes medios para contactarme 💻
 
 Además, cada tarjeta de empleo contiene:
 
