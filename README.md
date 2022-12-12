@@ -24,4 +24,4 @@ El proyecto fue desarrollado con HTML, TAILWIND, CSS Y JAVASCRIPT 💻⚒
 ![Alt Text](https://media.tenor.com/oTeBa4EVepMAAAAM/business-cat-working.gif)
 
 
-                                                               Hecho con 💪🧡 por Valeria Mercado
+                                Hecho con 💪🧡 por Valeria Mercado
