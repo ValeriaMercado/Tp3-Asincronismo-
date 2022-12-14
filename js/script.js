@@ -283,7 +283,8 @@ const searchCategory = (category) => {
     `https://638152199440b61b0d15c5d8.mockapi.io//jobs?category=${category}`
   )
     .then((res) => res.json())
-    .then((data) => listJobs(data));
+    .then((data) => listJobs(data))
+    .catch(() => alert(`No se encontraron resultados`));
 };
 
 $("#btnSearchJob").addEventListener("click", () => {
@@ -314,6 +315,9 @@ $("#btnSearchJob").addEventListener("click", () => {
 
 $("#btnClean").addEventListener("click", () => {
   $("#container-jobs").innerHTML = "";
+  $("#categoriesFilters").selectedIndex = 0;
+  $("#seniorityFilters").selectedIndex = 0;
+  $("#locationFilters").selectedIndex = 0;
   getJobs();
 });
 
